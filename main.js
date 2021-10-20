@@ -1,7 +1,9 @@
 song = "";
 song2 = "";
+
 leftWristX = 0;
 leftWristY = 0;
+
 rightWristX = 0;
 rightWrisY = 0;
 
@@ -31,6 +33,8 @@ function gotPoses(results)
         console.log(results);
         scoreLeftWrist = results[0].pose.keypoints[9].score;
         console.log("scoreLeftWrist = " + scoreLeftWrist);
+        console.log("scoreLeftWrist = " + scoreLeftWrist);
+        console.log("scoreRightWrist = " + scoreRightWrist + "scoreLeftWrist = " + scoreLeftWrist);
 
         leftWristX = results[0].pose.leftWrist.x;
         leftWristY = results[0].pose.leftWrist.y;
@@ -56,9 +60,26 @@ function draw() {
     fill("#FF0000");
     stroke("#FF0000");
 
+    
+    if(scoreRightWrist > 0.2)
+    {
+    circle(rightWristX,rightWristY,20);
+     if(rightWristY >0 && rightWristY <= 500)
+    {
+        song2.play();
+    }
+    }
+   
+
+
     if(scoreLeftWrist > 0.2)
     {
     circle(leftWristX,leftWristY,20);
     song.play();
+    } else if(scoreRightWrist > 0.2) {
+        
+    circle(rightWristX,rightWristY,20);
+    song2.play();
     }
+    
 }
