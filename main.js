@@ -5,7 +5,7 @@ leftWristX = 0;
 leftWristY = 0;
 
 rightWristX = 0;
-rightWrisY = 0;
+rightWristY = 0;
 
 function preload()
 {
@@ -34,6 +34,10 @@ function gotPoses(results)
         scoreLeftWrist = results[0].pose.keypoints[9].score;
         console.log("scoreLeftWrist = " + scoreLeftWrist);
         console.log("scoreLeftWrist = " + scoreLeftWrist);
+
+        scoreRightWrist = results[0].pose.keypoints[9].score;
+        console.log("scoreRightWrist = " + scoreRightWrist);
+        console.log("scoreRightWrist = " + scoreRightWrist);
         console.log("scoreRightWrist = " + scoreRightWrist + "scoreLeftWrist = " + scoreLeftWrist);
 
         leftWristX = results[0].pose.leftWrist.x;
